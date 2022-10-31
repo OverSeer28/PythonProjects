@@ -35,7 +35,7 @@ while switch:
     if error_text in lag.get_attribute('innerHTML'):
         switch = True
         time.sleep(2)
-        counter += counter 
+        counter = counter + 1
         print(counter)
     else:
         switch = False
