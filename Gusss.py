@@ -5,33 +5,51 @@ import time
 
 
 driver = webdriver.Chrome("chromedriver.exe");
-driver.get("https://gusss.knust.edu.gh/booking")
-username = driver.find_element(By.ID, 'email')
-password = driver.find_element(By.ID, 'pwd')
-form = driver.find_element(By.ID, 'login_frm')
+driver.get("https://srchostel.knust.edu.gh/#login")
+
+
+error_text = 'Submission of applications for accomodation for SRC Hostel has ended.'
+
 # submit = driver.find_element(By.CLASS_NAME, "btn-secondary")
 # assert"Google" in driver.title
+time.sleep(3)
 
-x = 0
 
-while x !=1:
-#      easdjentuh
-# 4fkonu4
 
-# foagyei1
-# 3weyxd2
+
+
+
+switch = True
+counter = 0 
+
+while switch:
+    username = driver.find_element(By.ID, 'usname')
+    password = driver.find_element(By.ID, 'pwsd')
+    form = driver.find_element(By.CLASS_NAME, 'form')
+
     username.send_keys("foagyei1")
     password.send_keys("3weyxd2")
     form.submit()
-    time.sleep(7)
-    current_url = driver.current_url
-    alert = driver.find_element(By.CLASS_NAME, 'alert')
-    print(alert)
-    if alert == "":
-        x = 1
+
+    lag = driver.find_element(By.CSS_SELECTOR, 'div.alert')
+    if error_text in lag.get_attribute('innerHTML'):
+        switch = True
+        time.sleep(2)
+        counter += counter 
+        print(counter)
+    else:
+        switch = False
+    
+
 
 
 # 20856469
 # easdjentuh
-# submit.click()
+
+
+# easdjentuh
+# 4fkonu4
+
+# foagyei1
+# 3weyxd2
 
